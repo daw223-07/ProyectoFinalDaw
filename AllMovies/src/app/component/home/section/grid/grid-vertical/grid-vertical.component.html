@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-center text-center contentDiv">
+    <!-- Al pulsar en un elemento le paso a la ruta el tipo de elemento pulsado y su id -->
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4 itemDiv" *ngFor="let item of items" [routerLink]="typeOfItem == 'lista' ? ['/', 'lista', item.id] : (item.media_type == 'movie' ? ['/', 'pelicula', item.id] : ['/', 'serie', item.id])">
+      <div class="removeItemContainer">
+        <!-- Imagen de eliminación -->
+        <img class="removeItemImg removeImg" src="../../../../../../assets/image/removeTrash.png" (click)="removeItem($event, item.id, item.title)" [ngStyle]="{'display': typeOfItem == 'lista' || item.media_type == 'tv' ? 'none' : ''}">
+      </div>
+      
+      <!-- Si la imagen es nula muestro una de assets -->
+      <img [src]="item.poster_path != null ? srcImage + item.poster_path : (typeOfItem == 'lista' ? '../../../../../../assets/image/list.png' : '../../../../../../assets/image/noImageGrid-Horizontal.jpg')" class="img-fluid poster rounded" alt=""/>
+      
+      <div class="h3Div">
+        <h3 class="text-sm">{{ item.name || item.title}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

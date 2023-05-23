@@ -1,0 +1,49 @@
+<div class="container navDiv">
+    <app-navbar></app-navbar>
+</div>
+
+<!-- Compruebo si los arrays están vacíos para mostrar o no el carousel/grid-horizontal -->
+<!-- También le paso el tipo de item (para el detalle), el array, el título y la función que tiene que ejecutar cada grid-horizontal para la paginación -->
+<div class="trendingDiv" [ngStyle]="{'display': trendingTvShows.length == 0 ? 'none' : ''}">
+    <app-carousel [typeOfItem]="'serie'" [items]="trendingTvShows"></app-carousel>
+</div>
+
+<div class="popularDiv" [ngStyle]="{'display': popularTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="popularTvShowsTitle" [items]="popularTvShows" (pagination)="paginationPopularTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="comedyDiv" [ngStyle]="{'display': comedyTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="comedyTvShowsTitle" [items]="comedyTvShows" (pagination)="paginationComedyTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="dramaDiv" [ngStyle]="{'display': dramaTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="dramaTvShowsTitle" [items]="dramaTvShows" (pagination)="paginationDramaTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="misteryDiv" [ngStyle]="{'display': misteryTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="misteryTvShowsTitle" [items]="misteryTvShows" (pagination)="paginationMisteryTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="actionAndAdventureDiv" [ngStyle]="{'display': actionAndAdventureTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="actionAndAdventureTvShowsTitle" [items]="actionAndAdventureTvShows" (pagination)="paginationActionAndAdventureTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="scienceFictionAndFantasyDiv" [ngStyle]="{'display': scienceFictionAndFantasyTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="scienceFictionAndFantasyTvShowsTitle" [items]="scienceFictionAndFantasyTvShows" (pagination)="paginationScienceFictionAndFantasyTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="familyDiv" [ngStyle]="{'display': familyTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="familyTvShowsTitle" [items]="familyTvShows" (pagination)="paginationFamilyTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="documentaryDiv" [ngStyle]="{'display': documentaryTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="documentaryTvShowsTitle" [items]="documentaryTvShows" (pagination)="paginationDocumentaryTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="realityDiv" [ngStyle]="{'display': realityTvShows.length == 0 ? 'none' : ''}">
+    <app-grid-horizontal [typeOfItem]="'serie'" [title]="realityTvShowsTitle" [items]="realityTvShows" (pagination)="paginationRealityTvShows()"></app-grid-horizontal>
+</div>
+
+<div class="footerDiv">
+    <app-footer></app-footer>
+</div>

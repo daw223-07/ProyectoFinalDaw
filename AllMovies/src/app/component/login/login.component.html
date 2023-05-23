@@ -1,0 +1,14 @@
+<div class="login">
+    <form class="custom-form" method="post">
+      <img src="../../../assets/image/allmoviesLogo_black.png"/>
+
+      <input type="text" name="usernameInput" placeholder="Usuario" required="required"  [(ngModel)]="usernameInputValue" [ngClass]="{ 'invalid-input': emptyInputsBool && usernameInputValue.trim() === '' }" />
+      <p class="error-message-username" *ngIf="emptyInputsBool && usernameInputValue.trim() === ''">Ingresa tu nombre de usuario</p>
+
+      <input type="password" name="passwordInput" placeholder="Contraseña" required="required" [(ngModel)]="passwordInputValue" [ngClass]="{ 'invalid-input': emptyInputsBool && passwordInputValue.trim() === '' }" />
+      <p class="error-message-password" *ngIf="emptyInputsBool && passwordInputValue.trim() === ''">Ingresa tu contraseña</p>
+
+      <button type="submit" (click)="login()">Iniciar sesión</button>
+      <p class="registerTextp">¿Todavía no tienes una cuenta? <a href="https://www.themoviedb.org/signup?language=es-ES" target="_blank">¡Regístrate!</a></p>
+    </form>
+</div>

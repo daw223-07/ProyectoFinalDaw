@@ -1,0 +1,59 @@
+<div class="container navDiv">
+    <app-navbar></app-navbar>
+</div>
+
+<div class="container contentDiv">
+  <div class="row detailsDiv">
+    <div class="col-lg-4 col-md-6 imgDiv">
+      <img [src]="itemImage" alt="Poster" class="img-fluid img-thumbnail poster">
+    </div>
+
+    <div class="col-lg-8 col-md-6 textDiv">
+      <h2 class="titleH2">{{ itemTitle }}<img class="removeListImg removeImg" src="../../../../assets/image/removeX.png" (click)="removeList()" [ngStyle]="{'display': typeOfItem != 'lista' ? 'none' : ''}"><br><span class="subtitleSpan">{{ itemSubtitle }}</span><img class="removeAllItemsImg removeImg" src="../../../../assets/image/removeTrash.png" (click)="removeAllItemsFromList()" [ngStyle]="{'display': typeOfItem != 'lista' || listItems.length == 0 ? 'none' : ''}"></h2>
+      <hr class="separator" size="2px" style="margin-right: 0em;"/>
+
+      <div class="accountStateDiv" [ngStyle]="{'display': typeOfItem == 'lista' || typeOfItem == 'persona'  ? 'none' : ''}">
+        <p class="accountStatep">
+          <img class="favoriteImg" [src]="srcImageFavorite" (click)="addRemoveFavorite()">
+          
+          <span class="ratedSpan">{{ itemRated }}&nbsp;<img class="ratedImg" [src]="srcImageRated" (click)="addRemoveRated()"></span>
+
+          <img class="addToListImg" [src]="srcImageAddToList" (click)="addToList()" [ngStyle]="{'display': typeOfItem === 'pelicula'  ? '' : 'none'}">
+        </p>
+      </div>
+
+      <p class="voteAveragep"><span class="itemVoteAverageSpan">{{ itemVoteAverage }}</span><span class="maxVoteSpan">{{ maxVote }}</span></p>
+      <p class="datesp">{{ itemDates }}</p>
+      <p class="genresp"><span class="genreTitleSpan">{{genresTitle }}</span><span class="genresSpan">{{ itemGenres }}</span></p>
+      <p class="descriptionp">{{ itemDescription }}</p>
+
+      <a class="trailera" [href]="itemTrailer" target="_blank" [ngStyle]="{'display': itemTrailer == '' ? 'none' : ''}">Ver trailer</a>
+    </div>
+  </div> 
+</div>
+
+<div class="listDiv">
+  <app-grid-vertical [ngStyle]="{'display': listItems.length == 0 || typeOfItem != 'lista'  ? 'none' : ''}" [items]="listItems" [idList]="idItem" [nameList]="itemTitle"></app-grid-vertical>
+</div>
+
+<div class="movieDiv">
+  <app-grid-horizontal [typeOfItem]="'persona'" [ngStyle]="{'display': movieCast.length == 0 || typeOfItem != 'pelicula'  ? 'none' : ''}" [title]="castTitle" [items]="movieCast"></app-grid-horizontal>
+</div>
+
+<div class="tvShowDiv">
+  <app-grid-horizontal [typeOfItem]="'persona'" [ngStyle]="{'display': tvShowCast.length == 0 || typeOfItem != 'serie'  ? 'none' : ''}" [title]="castTitle" [items]="tvShowCast"></app-grid-horizontal>
+</div>
+
+<div class="personDiv">
+  <div class="personMoviesDiv">
+    <app-grid-horizontal [typeOfItem]="'pelicula'" [ngStyle]="{'display': personMovies.length == 0 || typeOfItem != 'persona'  ? 'none' : ''}" [title]="knownForMoviesTitle" [items]="personMovies"></app-grid-horizontal>
+  </div>
+
+  <div class="personTvShowsDiv">
+    <app-grid-horizontal [typeOfItem]="'serie'" [ngStyle]="{'display': personTvShows.length == 0 || typeOfItem != 'persona'  ? 'none' : ''}" [title]="knownForTvShowsTitle" [items]="personTvShows"></app-grid-horizontal>
+  </div>
+</div>
+
+<div class="footerDiv">
+    <app-footer></app-footer>
+</div>

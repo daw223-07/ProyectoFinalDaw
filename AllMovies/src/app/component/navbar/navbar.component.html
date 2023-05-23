@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/peliculas" (click)="reloadMoviesComponent()">
+      <img src="../../../assets/image/allmovies.png" height="55" alt="" loading="lazy" style="margin-top: 2px;" />
+    </a>
+
+    <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" mdbCollapse [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/peliculas" (click)="reloadMoviesComponent()">Películas</a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/series" (click)="reloadTvShowsComponent()">Series</a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/buscar" (click)="reloadSearchComponent()">Buscar</a>
+        </li>
+      </ul>
+
+      <div class="d-flex w-auto profileDiv">
+        <a class="navbar-brand profilea" routerLink="/perfil" (click)="reloadProfileComponent()">
+          <img [src]="userImage" class="rounded-circle profileImg" height="50" width="50" alt="" loading="lazy" style="margin-top: 2px;" />
+        </a>
+      </div>
+
+      <div class="d-flex w-auto logoutDiv">
+        <a class="navbar-brand" (click)="logout()" (pointerenter)="pointerEnterLogout()" (pointerleave)="pointerLeaveLogout()">
+          <img [src]="logoutImage" class="logoutImg" height="45" width="45" alt="" loading="lazy" style="margin-top: 2px;" />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

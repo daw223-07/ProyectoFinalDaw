@@ -1,0 +1,56 @@
+<div class="container navDiv">
+    <app-navbar></app-navbar>
+</div>
+
+<div class="overflow-hidden profileDiv">
+    <div class="px-4 pt-0 pb-4">
+        <div class="media align-items-end profile-header">
+            <div class="profile mr-3">
+                <img [src]="userImage" id="userImg" alt="..." width="280em" class="rounded mb-2 img-thumbnail">
+
+                <div class="media-body mb-5 text-white infoUserDiv">
+                    <h4 class="mt-0 mb-0 text-sm">{{ userName }}</h4> <!-- Muestro el nombre de usuario que está guardado en localStorage -->
+                    <p class="small mb-2 text-sm"> <i class="fa fa-map-marker mr-2"></i>{{ userUsername }}</p> <!-- Muestro el username del usuario que está guardado en localStorage -->
+                    <hr size="2px" color="grey" style="margin-right: 0em;"/>
+                    <!-- Después de hacer las llamadas de listas, favoritos y valoraciones hago la suma y muestro el total de cada uno -->
+                    <h6 class="mt-0 mb-0 text-sm">{{ numberOfLists + numberOfListsText }}<br><img src="../../../../assets/image/favoriteFill.png" height="15em" style="margin-bottom: 0.2em;">&nbsp;{{ numberOfFavorites }}<br><img src="../../../../assets/image/starFill.png" height="15em" style="margin-bottom: 0.2em;">&nbsp;{{ numberOfRateds }}</h6>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <div class="infoButtonsAccountDiv p-4 d-flex justify-content-center text-center">
+        <ul class="list-inline mb-0 buttonsAccountUl">
+            <li class="list-inline-item">
+                <button type="button" class="btn btn-md text-sm-button" (click)="showLists()">LISTAS</button>
+            </li>
+
+            <li class="list-inline-item">
+                <button type="button" class="btn btn-md text-sm-button" (click)="showFavorites()">FAVORITOS</button>
+            </li>
+
+            <li class="list-inline-item">
+                <button type="button" class="btn btn-md text-sm-button" (click)="showRateds()">VALORACIONES</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Compruebo si los arrays están vacíos o si showListsBool, showFavoritesBool y showRatedsBool son true o false para saber que vista tengo que mostrar -->
+    <!-- También le paso el array, el título y la función que tiene que ejecutar cada grid-vertical/grid-horizontal para la paginación -->
+    <div class="py-4 px-4 contentUserDiv">
+        <div class="align-items-center justify-content-center mb-3 addListDiv" [ngStyle]="{'display': showListsBool == false  ? 'none' : 'flex'}">
+            <button type="button" class="btn addListBtn text-sm-button" (click)="addList()">+ Crear lista</button>
+        </div>
+        <app-grid-vertical class="listDiv" [typeOfItem]="'lista'" [ngStyle]="{'display': lists.length == 0 || showListsBool == false  ? 'none' : ''}" [items]="lists"></app-grid-vertical>
+
+        <app-grid-horizontal [typeOfItem]="'pelicula'" [ngStyle]="{'display': favoriteMovies.length == 0 || showFavoritesBool == false ? 'none' : ''}" [title]="moviesTitle" [items]="favoriteMovies" (pagination)="paginationFavoriteMovies()"></app-grid-horizontal>
+        <app-grid-horizontal [typeOfItem]="'serie'" [ngStyle]="{'display': favoriteTvShows.length == 0 || showFavoritesBool == false  ? 'none' : ''}" [title]="tvShowsTitle" [items]="favoriteTvShows" (pagination)="paginationFavoriteTvShows()"></app-grid-horizontal>
+        
+        <app-grid-horizontal [typeOfItem]="'pelicula'" [ngStyle]="{'display': ratedMovies.length == 0 || showRatedsBool == false  ? 'none' : ''}" [title]="moviesTitle" [items]="ratedMovies" (pagination)="paginationRatedMovies()"></app-grid-horizontal>
+        <app-grid-horizontal [typeOfItem]="'serie'" [ngStyle]="{'display': ratedTvShows.length == 0 || showRatedsBool == false  ? 'none' : ''}" [title]="tvShowsTitle" [items]="ratedTvShows" (pagination)="paginationRatedTvShows()"></app-grid-horizontal>
+    </div>
+</div>
+
+<div class="footerDiv">
+    <app-footer></app-footer>
+</div>

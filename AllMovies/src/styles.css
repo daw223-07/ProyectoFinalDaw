@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'OpenSansLight';
+    src: url(assets/font/OpenSans-Light.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url(assets/font/OpenSans-Regular.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: 'OpenSansSemiBold';
+    src: url(assets/font/OpenSans-SemiBold.ttf) format("opentype");
+}
+
+html{
+    background-color: black;
+}
+
+body{
+    background-color: transparent!important;
+}

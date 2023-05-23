@@ -1,0 +1,30 @@
+.trendingDiv{
+    margin-top: 1em;
+    margin-bottom: 5em;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+
+.popularDiv, .upcomingDiv, .comedyDiv, .romanceDiv, .dramaDiv, .misteryAndSuspenseDiv, .actionAndAdventureDiv, .fantasyDiv, .familyDiv, .terrorDiv, .crimeDiv, .documentaryDiv, .scienceFictionDiv{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.upcomingDiv, .actionDiv, .comedyDiv, .romanceDiv, .dramaDiv, .misteryAndSuspenseDiv, .actionAndAdventureDiv, .fantasyDiv, .familyDiv, .terrorDiv, .crimeDiv, .documentaryDiv, .scienceFictionDiv{
+    margin-top: 2em;
+}
+
+@media (max-width: 750px){ 
+    .trendingDiv{
+        margin-bottom: 3em!important;
+    }
+    
+    .upcomingDiv, .actionDiv, .comedyDiv, .romanceDiv, .dramaDiv, .misteryAndSuspenseDiv, .actionAndAdventureDiv, .fantasyDiv, .familyDiv, .terrorDiv, .crimeDiv, .documentaryDiv, .scienceFictionDiv{
+        margin-top: 0em!important;
+    }
+
+    .popularDiv, .upcomingDiv, .comedyDiv, .romanceDiv, .dramaDiv, .misteryAndSuspenseDiv, .actionAndAdventureDiv, .fantasyDiv, .familyDiv, .terrorDiv, .crimeDiv, .documentaryDiv, .scienceFictionDiv{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
