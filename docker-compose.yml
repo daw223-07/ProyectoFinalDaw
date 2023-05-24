@@ -12,7 +12,7 @@ services:
     volumes:
       - ./AllMoviesApp:/usr/share/nginx/html
 networks:
-  networkgym:
+  networkallmovies:
     ipam:
       config:
         - subnet: 172.24.0.0/24
