@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - networkallmovies
+    volumes:
+      - ./AllMoviesApp:/usr/share/nginx/html
+networks:
+  networkgym:
+    ipam:
+      config:
+        - subnet: 172.24.0.0/24
