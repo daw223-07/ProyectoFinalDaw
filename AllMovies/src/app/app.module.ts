@@ -18,6 +18,7 @@ import { GridHorizontalComponent } from './component/home/section/grid/grid-hori
 import { GridVerticalComponent } from './component/home/section/grid/grid-vertical/grid-vertical.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DetailComponent } from './component/home/detail/detail.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { DetailComponent } from './component/home/detail/detail.component';
   providers: [
     { provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
-      multi: true }
+      multi: true },
+    { provide: LocationStrategy,
+      useClass: HashLocationStrategy }
   ],
 
   bootstrap: [AppComponent]
